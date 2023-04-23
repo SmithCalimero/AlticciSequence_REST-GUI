@@ -1,0 +1,42 @@
+---
+openapi: 3.0.3
+info:
+  title: alticci API
+  version: "1.0"
+tags:
+- name: Alticci Sequence API
+  description: Operations related to the Alticci sequence
+paths:
+  /alticci/clearCache:
+    post:
+      tags:
+      - Alticci Sequence API
+      responses:
+        "201":
+          description: Created
+  /alticci/{n}:
+    get:
+      tags:
+      - Alticci Sequence API
+      summary: Get the value of the Alticci sequence at a specific index n
+      parameters:
+      - name: "n"
+        in: path
+        description: The index of the Alticci sequence value to retrieve
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          description: Success. The value of the Alticci sequence at the specified
+            index n
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+        "400":
+          description: Invalid input parameter
+        "500":
+          description: Internal server error

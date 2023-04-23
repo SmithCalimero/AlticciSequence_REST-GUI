@@ -1,0 +1,61 @@
+<div class="flex flex-col h-screen">
+  <header class="bg-gray-800 text-white body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <span class="ml-3 text-xl">Alticci App</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow flex items-center justify-center">
+    <div class="w-full max-w-sm">
+      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" (submit)="onSubmit()">
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2 text-center" for="number">
+            Enter a number:
+          </label>
+          <div class="flex justify-center">
+            <input
+              [(ngModel)]="n"
+              name="numberInput"
+              class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
+              id="number"
+              type="number"
+              required
+              min="0"
+              max="100"
+            />
+          </div>
+        </div>
+        <div class="flex flex-col items-center">
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"
+          >
+            Submit
+          </button>
+          <div *ngIf="result === null" class="text-gray-500 font-bold text-lg">
+            Result: -
+          </div>
+          <div *ngIf="result !== null" class="text-gray-900 font-bold text-lg">
+            Result: {{ result }}
+          </div>
+        </div>
+      </form>
+      <div *ngIf="error" class="text-red-500 text-xs italic mb-2 flex flex-col items-center">
+        Error: {{ error }}
+      </div>
+    </div>
+  </main>
+  
+
+  <footer class="bg-gray-800 text-white body-font">
+    <div class="container mx-auto flex px-5 py-8 justify-center items-center flex-col">
+      <span class="text-sm text-gray-500 mb-2 sm:mb-0">© 2023 Alticci App —
+        <a href="https://github.com/SmithCalimero" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">SmithCalimero</a>
+      </span>
+    </div>
+  </footer>
+</div>
